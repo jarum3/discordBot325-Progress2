@@ -41,9 +41,14 @@ module.exports = {
     // TODO #3 Get current semester
     return 0;
   },
-  appendRoleToDisk: function (role, file) {
-    // TODO #4 Write data passed as an object to JSON, append to file given.
+  saveListToFile: function (list, file) {
+    // TODO #4 Write data passed as an array of objects to JSON, overwrite file given.
+    const arrList = JSON.stringify(list);
     return 0;
+  },
+  getListFromFile: function (file) {
+    // TODO Function should return a list of objects parsed from the given file
+    return JSON.parse(file);
   },
   isColor: function (strColor) {
     const { Colors } = require('discord.js');
