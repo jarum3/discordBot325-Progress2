@@ -42,13 +42,17 @@ module.exports = {
     return 0;
   },
   saveListToFile: function (list, file) {
-    // TODO #4 Write data passed as an array of objects to JSON, overwrite file given.
-    const arrList = JSON.stringify(list);
-    return 0;
+    // TODO Verify that this works
+    const fs = require('fs');
+    const listJson = JSON.stringify(list);
+    fs.writeFileSync(file, listJson, 'utf-8'); // This is a blocking write
+    return 0; // Can return other values if this errors
   },
   getListFromFile: function (file) {
-    // TODO Function should return a list of objects parsed from the given file
-    return JSON.parse(file);
+    // TODO verify that this works
+    const fs = require('fs');
+    const text = fs.readFileSync(file).toString('utf-8'); // This is a blocking read, use sparingly
+    return JSON.parse(text);
   },
   isColor: function (strColor) {
     const { Colors } = require('discord.js');
