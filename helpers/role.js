@@ -2,13 +2,12 @@
 
 module.exports = {
   CourseRole: class {
-    constructor(prefix, number, role, veteranRole, color) {
+    constructor(prefix, number, role, veteranRole) {
       this.name = prefix + '-' + number;
       this.prefix = prefix;
       this.number = number;
       this.role = role;
       this.veteranRole = veteranRole;
-      this.color = color;
     }
     createAndPopulateCategory(video, joint) {
       const funcs = require('./functions');

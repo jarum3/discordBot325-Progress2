@@ -59,7 +59,7 @@ module.exports = {
         })
         .catch(console.error());
     }
-    const newCourse = new roleData.CourseRole(prefix, number, role, veteranRole, color);
+    const newCourse = new roleData.CourseRole(prefix, number, role, veteranRole);
     rolesList.push(newCourse);
     funcs.saveListToFile(rolesList, 'data/courses.json');
     interaction.reply('Course added!');
