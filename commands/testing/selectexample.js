@@ -1,4 +1,6 @@
 const { SlashCommandBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
+
+// Creates a short, hard-coded example of a select menu. Template for other commands.
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('selectexample')

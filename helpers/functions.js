@@ -13,15 +13,14 @@ module.exports = {
   },
   createCategory: async function (guild, categoryName, role) {
     const { ChannelType } = require('discord.js');
-    await guild.channels.create({
+    const createdChannel = await guild.channels.create({
       name: categoryName,
       type: ChannelType.GuildCategory,
     })
       .then(category => console.log('Created category: ' + category.name))
-      .catch(category => console.error('Error created category: ' + category.name));
+      .catch(category => console.error('Error creating category: ' + category.name));
     // TODO #1 lock permissions to the given role object
-    return guild.channels.cache.find(
-      x => x.name === categoryName && x.ChannelType === ChannelType.GuildCategory);
+    return createdChannel;
   },
   createChannel: async function (guild, channelName, category) {
     const { ChannelType } = require('discord.js');
@@ -30,7 +29,7 @@ module.exports = {
       type: ChannelType.GuildText,
     })
       .then(channel => console.log('Created channel: ' + channel.name))
-      .catch(channel => console.error('Error created category: ' + channel.name));
+      .catch(channel => console.error('Error creating channel: ' + channel.name));
     createdChannel.setParent(category);
     createdChannel.lockPermissions();
     return createdChannel;

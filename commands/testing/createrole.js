@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
-const funcs = require('../helpers/functions');
+const funcs = require('../../helpers/functions');
 
+// Creates a new role with a given name and color
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('createrole')
