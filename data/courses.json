@@ -1,1 +1,39 @@
-[]
+[
+  {
+    "prefix": "CIS",
+    "number": "300",
+    "name": "CIS-300",
+    "role": {
+      "guild": "1060586500003213332",
+      "icon": null,
+      "unicodeEmoji": null,
+      "id": "1075116282678083626",
+      "name": "CIS-300",
+      "color": 8083700,
+      "hoist": false,
+      "rawPosition": 1,
+      "permissions": "1071698660929",
+      "managed": false,
+      "mentionable": false,
+      "tags": null,
+      "createdTimestamp": 1676398096485
+    },
+    "veteranRole": {
+      "guild": "1060586500003213332",
+      "icon": null,
+      "unicodeEmoji": null,
+      "id": "1075116283558903888",
+      "name": "CIS-300 Veteran",
+      "color": 5780945,
+      "hoist": false,
+      "rawPosition": 1,
+      "permissions": "1071698660929",
+      "managed": false,
+      "mentionable": false,
+      "tags": null,
+      "createdTimestamp": 1676398096695
+    },
+    "video": true,
+    "jointClass": null
+  }
+]
