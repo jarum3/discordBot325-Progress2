@@ -15,7 +15,18 @@ module.exports = {
     .addBooleanOption(option =>
       option.setName('video')
         .setDescription('Should the course require a videos channel')
-        .setRequired(false)),
+        .setRequired(false))
+    .addStringOption(option =>
+      option.setName('jointclass')
+        .setDescription('Optionally, a course that this class should share a channel with')
+        .setRequired(false)
+        .addChoices(...(() => {
+          const funcs = require('../helpers/functions');
+          const rolesList = funcs.getListFromFile('data/courses.json');
+          const choices = [];
+          rolesList.forEach(element => choices.push({ name: element.name, value: element.name }));
+          return choices;
+        })())),
   async execute(interaction) {
     const funcs = require('../helpers/functions');
     const roleData = require('../helpers/role');

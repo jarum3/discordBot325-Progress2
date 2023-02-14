@@ -35,5 +35,42 @@
     },
     "video": true,
     "jointClass": null
+  },
+  {
+    "prefix": "CSC",
+    "number": "320",
+    "name": "CSC-320",
+    "role": {
+      "guild": "1060586500003213332",
+      "icon": null,
+      "unicodeEmoji": null,
+      "id": "1075126583930662943",
+      "name": "CSC-320",
+      "color": 4014708,
+      "hoist": false,
+      "rawPosition": 1,
+      "permissions": "1071698660929",
+      "managed": false,
+      "mentionable": false,
+      "tags": null,
+      "createdTimestamp": 1676400552495
+    },
+    "veteranRole": {
+      "guild": "1060586500003213332",
+      "icon": null,
+      "unicodeEmoji": null,
+      "id": "1075126585247666226",
+      "name": "CSC-320 Veteran",
+      "color": 1711953,
+      "hoist": false,
+      "rawPosition": 1,
+      "permissions": "1071698660929",
+      "managed": false,
+      "mentionable": false,
+      "tags": null,
+      "createdTimestamp": 1676400552809
+    },
+    "video": true,
+    "jointClass": "CIS-300"
   }
 ]
