@@ -1,9 +1,8 @@
 const { SlashCommandBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
 
-//list iteration would need to be done outside of function, .addOptions
-for(element in getListFromFile()){
-            
-}
+// list iteration would need to be done outside of function, .addOptions
+// for(element in getListFromFile()){
+// }
 
 // Creates a short, hard-coded example of a select menu. Template for other commands.
 module.exports = {
@@ -17,18 +16,12 @@ module.exports = {
       .setMinValues(1)
       .setMaxValues(2)
       .addOptions([
-        
-        //itarate through the file to gain every course and info about that course
-        //{
+        // iterate through the file to gain every course and info about that course
+        // {
         //    label: 'course name'
         //    description: 'description of course'
         //    value: 'course name'
-        //},
-       
-        
-
-        
-
+        // },
       ]));
     await interaction.reply({ content: 'Select menu example', components: [row] });
   },
