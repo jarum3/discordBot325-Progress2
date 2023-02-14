@@ -18,9 +18,28 @@ module.exports = {
       }
     }
     if (interaction.isStringSelectMenu()) {
-      const selected = interaction.values.join(',');
-      const userReply = `The user has selected ${selected}`;
-      await interaction.reply({ content: userReply, ephemeral: true });
+      if (interaction.customId === 'reaction-roles') {
+        // TODO: Insert code for handling role joining
+        const selected = interaction.values.join(',');
+        const userReply = `The user has selected ${selected}`;
+        await interaction.reply({ content: userReply, ephemeral: true });
+
+        // Sample code for possibly handling single-selection menus
+        // await interaction.deferReply({ ephemeral: true})
+
+        // const roleID = interaction.values[0];
+        // const role = interaction.guild.roles.cache.get(roleID);
+        // const memberRoles = interaction.member.roles;
+        // const hasRole = memberRoles.cache.has(roleID);
+        // if (hasRole) {
+        //    memberRoles.remove(roleID);
+        //    interaction.followUp(`${role.name} has been removed.`);
+        // }
+        // else {
+        //     memberRoles.add(roleID);
+        //     interaction.followUp(`${role.name} has been added.`);
+        // }
+      }
     }
   },
 };
