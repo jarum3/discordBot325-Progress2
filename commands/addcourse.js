@@ -1,5 +1,4 @@
 const { SlashCommandBuilder } = require('discord.js');
-
 // Adds a course to the list of courses, with a role and veteran role attached
 module.exports = {
   data: new SlashCommandBuilder()
@@ -7,15 +6,23 @@ module.exports = {
     .setDescription('Adds a course to the list of courses')
     .addStringOption(option =>
       option.setName('prefix')
-        .setDescription('Course prefix'))
+        .setDescription('Course prefix')
+        .setRequired(true))
     .addStringOption(option =>
       option.setName('number')
-        .setDescription('Course number')),
+        .setDescription('Course number')
+        .setRequired(true))
+    .addBooleanOption(option =>
+      option.setName('video')
+        .setDescription('Should the course require a videos channel')
+        .setRequired(false)),
   async execute(interaction) {
     const funcs = require('../helpers/functions');
     const roleData = require('../helpers/role');
     const prefix = interaction.options.getString('prefix');
     const number = interaction.options.getString('number');
+    const video = interaction.options.getBoolean('video');
+    const jointClass = interaction.options.getString('jointclass');
     const rolesList = funcs.getListFromFile('data/courses.json');
     const serverRoles = [];
     interaction.guild.roles.cache.forEach(r => {
@@ -61,7 +68,14 @@ module.exports = {
         })
         .catch(console.error());
     }
-    const newCourse = new roleData.CourseRole(prefix, number, role, veteranRole);
+    const newCourse = new roleData.CourseRole({
+      prefix: prefix,
+      number: number,
+      role: role,
+      veteranRole: veteranRole,
+      video: video,
+      jointClass: jointClass,
+    });
     rolesList.push(newCourse);
     funcs.saveListToFile(rolesList, 'data/courses.json');
     interaction.reply('Course added!');
