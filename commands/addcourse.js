@@ -48,11 +48,11 @@ module.exports = {
     }
     const roleName = prefix + '-' + number;
     let color;
-    let role = interaction.guild.roles.cache.find(x => x.name === roleName);
-    let veteranRole = interaction.guild.roles.cache.find(x => x.name === roleName + ' Veteran');
+    let role = await interaction.guild.roles.cache.find(x => x.name === roleName);
+    let veteranRole = await interaction.guild.roles.cache.find(x => x.name === roleName + ' Veteran');
     if (!role) {
       color = funcs.generateColor();
-      while (interaction.guild.roles.cache.find(x => x.hexColor === color)) {
+      while (await interaction.guild.roles.cache.find(x => x.hexColor === color)) {
         // Keep generating a new color until no role matches it
         color = funcs.generateColor();
       }

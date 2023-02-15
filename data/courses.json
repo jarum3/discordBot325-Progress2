@@ -1,1 +1,113 @@
-[{"prefix":"PRE","number":"200","name":"PRE-200","role":{"guild":"1060586500003213332","icon":null,"unicodeEmoji":null,"id":"1075226289868390400","name":"PRE-200","color":4407574,"hoist":false,"rawPosition":1,"permissions":"1071698660929","managed":false,"mentionable":false,"tags":null,"createdTimestamp":1676424324243},"veteranRole":{"guild":"1060586500003213332","icon":null,"unicodeEmoji":null,"id":"1075226290807914617","name":"PRE-200 Veteran","color":2104832,"hoist":false,"rawPosition":1,"permissions":"1071698660929","managed":false,"mentionable":false,"tags":null,"createdTimestamp":1676424324467},"video":true,"jointClass":"CIS-300"},{"prefix":"CIS","number":"300","name":"CIS-300","role":{"guild":"1060586500003213332","icon":null,"unicodeEmoji":null,"id":"1075227660130717786","name":"CIS-300","color":5229904,"hoist":false,"rawPosition":1,"permissions":"1071698660929","managed":false,"mentionable":false,"tags":null,"createdTimestamp":1676424650939},"veteranRole":{"guild":"1060586500003213332","icon":null,"unicodeEmoji":null,"id":"1075227660944429057","name":"CIS-300 Veteran","color":2927149,"hoist":false,"rawPosition":1,"permissions":"1071698660929","managed":false,"mentionable":false,"tags":null,"createdTimestamp":1676424651133},"video":true,"jointClass":"CSC-320"}]
+[
+  {
+    "prefix": "PRE",
+    "number": "200",
+    "name": "PRE-200",
+    "role": {
+      "guild": "1060586500003213332",
+      "icon": null,
+      "unicodeEmoji": null,
+      "id": "1075226289868390400",
+      "name": "PRE-200",
+      "color": 4407574,
+      "hoist": false,
+      "rawPosition": 1,
+      "permissions": "1071698660929",
+      "managed": false,
+      "mentionable": false,
+      "tags": null,
+      "createdTimestamp": 1676424324243
+    },
+    "veteranRole": {
+      "guild": "1060586500003213332",
+      "icon": null,
+      "unicodeEmoji": null,
+      "id": "1075226290807914617",
+      "name": "PRE-200 Veteran",
+      "color": 2104832,
+      "hoist": false,
+      "rawPosition": 1,
+      "permissions": "1071698660929",
+      "managed": false,
+      "mentionable": false,
+      "tags": null,
+      "createdTimestamp": 1676424324467
+    },
+    "video": true,
+    "jointClass": "CIS-300"
+  },
+  {
+    "prefix": "CIS",
+    "number": "300",
+    "name": "CIS-300",
+    "role": {
+      "guild": "1060586500003213332",
+      "icon": null,
+      "unicodeEmoji": null,
+      "id": "1075227660130717786",
+      "name": "CIS-300",
+      "color": 5229904,
+      "hoist": false,
+      "rawPosition": 1,
+      "permissions": "1071698660929",
+      "managed": false,
+      "mentionable": false,
+      "tags": null,
+      "createdTimestamp": 1676424650939
+    },
+    "veteranRole": {
+      "guild": "1060586500003213332",
+      "icon": null,
+      "unicodeEmoji": null,
+      "id": "1075227660944429057",
+      "name": "CIS-300 Veteran",
+      "color": 2927149,
+      "hoist": false,
+      "rawPosition": 1,
+      "permissions": "1071698660929",
+      "managed": false,
+      "mentionable": false,
+      "tags": null,
+      "createdTimestamp": 1676424651133
+    },
+    "video": true,
+    "jointClass": "CSC-320"
+  },
+  {
+    "prefix": "CIS",
+    "number": "200",
+    "name": "CIS-200",
+    "role": {
+      "guild": "1060586500003213332",
+      "icon": null,
+      "unicodeEmoji": null,
+      "id": "1075231976476397648",
+      "name": "CIS-200",
+      "color": 1171566,
+      "hoist": false,
+      "rawPosition": 1,
+      "permissions": "1071698660929",
+      "managed": false,
+      "mentionable": false,
+      "tags": null,
+      "createdTimestamp": 1676425680036
+    },
+    "veteranRole": {
+      "guild": "1060586500003213332",
+      "icon": null,
+      "unicodeEmoji": null,
+      "id": "1075231977449459784",
+      "name": "CIS-200 Veteran",
+      "color": 48459,
+      "hoist": false,
+      "rawPosition": 1,
+      "permissions": "1071698660929",
+      "managed": false,
+      "mentionable": false,
+      "tags": null,
+      "createdTimestamp": 1676425680268
+    },
+    "video": false,
+    "jointClass": null
+  }
+]
