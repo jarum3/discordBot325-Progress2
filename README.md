@@ -29,10 +29,10 @@ Run (deploy-commands.js) after adding any new command files, or on a new bot.
 - [x] Separation into testing commands for easier deployment
 
 # To-do
-- [] **Lock permissions for essentially all current slash-commands behind administrative privileges**
-- [] Create functionality to create, populate, and archive categories and attach those to role objects
-- [] Validate file saving further to reduce concurrency conflicts
-- [] Clean up edge cases for role deletions outside of bot interactions
+- [ ] **Lock permissions for essentially all current slash-commands behind administrative privileges**
+- [ ] Create functionality to create, populate, and archive categories and attach those to role objects
+- [ ] Validate file saving further to reduce concurrency conflicts
+- [ ] Clean up edge cases for role deletions outside of bot interactions
 
 ## Previous features
 - [x] Generating random colors, such as `#123abc` or `#2f102f`
