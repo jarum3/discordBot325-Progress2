@@ -19,7 +19,6 @@ module.exports = {
     }
     if (interaction.isStringSelectMenu()) {
       if (interaction.customId === 'reaction-roles') {
-        // TODO: Insert code for handling role joining
         const addedRoles = [];
         const funcs = require('../helpers/functions');
         const rolesList = funcs.getListFromFile('data/courses.json');
@@ -39,6 +38,28 @@ module.exports = {
           }
         }
         await interaction.reply({ content: 'Roles added: ' + addedRoles.join(', '), ephemeral: true });
+      }
+
+      if (interaction.customId === 'remove-roles') {
+        const funcs = require('../helpers/functions');
+        const rolesList = funcs.getListFromFile('data/courses.json');
+        const rolesSelected = interaction.values;
+        const removedRoles = [];
+        // Assign roles
+        for (const selectedElement of rolesSelected) {
+          for (const course of rolesList) {
+            if (course.name != selectedElement) continue;
+            const courseRole = await interaction.guild.roles.fetch(course.role.id);
+            const veteranRole = await interaction.guild.roles.fetch(course.role.id);
+            // Deletes roles if their members are empty
+            if (courseRole && courseRole.members.size === 0) interaction.guild.roles.delete(courseRole, 'Deleted as part of course deletion');
+            if (veteranRole && veteranRole.members.size === 0) interaction.guild.roles.delete(veteranRole, 'Deleted as part of course deletion');
+            rolesList.splice(rolesList.indexOf(course), 1);
+            removedRoles.push(course.name);
+            funcs.saveListToFile(rolesList, 'data/courses.json');
+          }
+        }
+        await interaction.reply({ content: 'Roles removed: ' + removedRoles.join(', '), ephemeral: true });
       }
     }
   },

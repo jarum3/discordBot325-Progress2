@@ -12,6 +12,10 @@ module.exports = {
   async execute(interaction) {
     const funcs = require('../helpers/functions');
     const rolesList = funcs.getListFromFile('data/courses.json');
+    if (rolesList.length === 0) {
+      await interaction.reply({ content: 'There are no courses currently in the list.', ephemeral: true });
+      return;
+    }
     const options = [];
     rolesList.forEach(element => options.push({ label: element.name, description: element.name, value: element.name }));
     const row = new ActionRowBuilder().addComponents(new StringSelectMenuBuilder()
