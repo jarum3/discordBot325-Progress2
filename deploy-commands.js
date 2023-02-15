@@ -20,22 +20,24 @@ module.exports = {
         console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
       }
     }
+    if (process.env.testing.toLowerCase() === 'true') {
+      const testingPath = path.join(__dirname, 'commands/testing'); // Grabbing testing directory
+      // Grabbing all files ending in .js
+      const testingFiles = fs.readdirSync(testingPath).filter(file => file.endsWith('.js'));
 
-    const testingPath = path.join(__dirname, 'commands/testing'); // Grabbing testing directory
-    // Grabbing all files ending in .js
-    const testingFiles = fs.readdirSync(testingPath).filter(file => file.endsWith('.js'));
-
-    for (const file of testingFiles) {
-      const filePath = path.join(testingPath, file);
-      const command = require(filePath);
-      // Push each command data to the commands list as JSON
-      if ('data' in command && 'execute' in command) {
-        commands.push(command.data.toJSON());
-      }
-      else {
-        console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+      for (const file of testingFiles) {
+        const filePath = path.join(testingPath, file);
+        const command = require(filePath);
+        // Push each command data to the commands list as JSON
+        if ('data' in command && 'execute' in command) {
+          commands.push(command.data.toJSON());
+        }
+        else {
+          console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+        }
       }
     }
+
     const rest = new REST({ version: '10' }).setToken(process.env.CLIENT_TOKEN);
 
     (async () => {

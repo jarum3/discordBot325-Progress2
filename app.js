@@ -28,21 +28,23 @@ for (const file of commandFiles) {
 }
 
 
-// TODO Remove testing code
-const testingPath = path.join(__dirname, 'commands/testing'); // Grabbing tests directory
-const testingFiles = fs.readdirSync(testingPath).filter(file => file.endsWith('.js'));
+// Processing env string as boolean
+if (process.env.testing.toLowerCase() === 'true') {
+  const testingPath = path.join(__dirname, 'commands/testing'); // Grabbing tests directory
+  const testingFiles = fs.readdirSync(testingPath).filter(file => file.endsWith('.js'));
 
 
-for (const file of testingFiles) {
-  const filePath = path.join(testingPath, file);
-  const command = require(filePath);
-  // Create a command for each file, using the command name and value
-  // Making sure that data and execute sections are intact
-  if ('data' in command && 'execute' in command) {
-    client.commands.set(command.data.name, command);
-  }
-  else {
-    console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+  for (const file of testingFiles) {
+    const filePath = path.join(testingPath, file);
+    const command = require(filePath);
+    // Create a command for each file, using the command name and value
+    // Making sure that data and execute sections are intact
+    if ('data' in command && 'execute' in command) {
+      client.commands.set(command.data.name, command);
+    }
+    else {
+      console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+    }
   }
 }
 

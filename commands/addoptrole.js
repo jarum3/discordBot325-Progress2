@@ -25,7 +25,7 @@ module.exports = {
     for (const role of rolesList) {
       if (role.name === roleName) {
         // If our role is already in the list, just return an error message
-        interaction.reply('A course with that name already exists.');
+        interaction.reply({ content: 'A course with that name already exists.', ephemeral: true });
         return;
       }
     }

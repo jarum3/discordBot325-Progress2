@@ -8,7 +8,7 @@ module.exports = {
     const funcs = require('../helpers/functions');
     const rolesList = funcs.getListFromFile('data/courses.json');
     if (rolesList.length === 0) {
-      await interaction.reply('There are no courses currently in the list.');
+      await interaction.reply({ content: 'There are no courses currently in the list.', ephemeral: true });
       return;
     }
     const options = [];
