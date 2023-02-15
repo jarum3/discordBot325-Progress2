@@ -89,6 +89,6 @@ module.exports = {
     });
     rolesList.push(newCourse);
     funcs.saveListToFile(rolesList, 'data/courses.json');
-    interaction.reply('Course added!');
+    interaction.reply({ content: 'Course added!', ephemeral: true });
   },
 };

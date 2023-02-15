@@ -1,11 +1,24 @@
-const { SlashCommandBuilder } = require('discord.js');
-
-// TODO: Removes an optional role from the list, only removing one course and leaving the rest untouched.
-
+const { SlashCommandBuilder, StringSelectMenuBuilder, ActionRowBuilder } = require('discord.js');
+// Adds a course to the list of courses, with a role and veteran role attached
 module.exports = {
-  data: new SlashCommandBuilder().setName('removeoptrole').setDescription('Removes an optional role from the list of roles'),
+  data: new SlashCommandBuilder()
+    .setName('removeoptrole')
+    .setDescription('Provides a dropdown to remove optional roles'),
   async execute(interaction) {
-    const sent = await interaction.reply({ content: 'Pinging...', fetchReply: true });
-    interaction.editReply(`Pong!\nTook ${sent.createdTimestamp - interaction.createdTimestamp}ms`);
+    const funcs = require('../helpers/functions');
+    const rolesList = funcs.getListFromFile('data/optroles.json');
+    if (rolesList.length === 0) {
+      await interaction.reply('There are no roles currently in the list.');
+      return;
+    }
+    const options = [];
+    rolesList.forEach(element => options.push({ label: element.name, description: element.description, value: element.name }));
+    const row = new ActionRowBuilder().addComponents(new StringSelectMenuBuilder()
+      .setCustomId('remove-roles')
+      .setPlaceholder('Nothing selected')
+      .setMinValues(1)
+      .setMaxValues(options.length)
+      .addOptions(options));
+    await interaction.reply({ content: 'Please select which roles you\'d like to remove:', components: [row], ephemeral: true });
   },
 };

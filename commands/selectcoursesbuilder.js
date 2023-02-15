@@ -1,10 +1,5 @@
 const { SlashCommandBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
 
-// list iteration would need to be done outside of function, .addOptions
-// for(element in getListFromFile()){
-// }
-
-// Creates a short, hard-coded example of a select menu. Template for other commands.
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('selectcoursesbuilder')
@@ -19,7 +14,7 @@ module.exports = {
     const options = [];
     rolesList.forEach(element => options.push({ label: element.name, description: element.name, value: element.name }));
     const row = new ActionRowBuilder().addComponents(new StringSelectMenuBuilder()
-      .setCustomId('reaction-roles')
+      .setCustomId('reaction-courses')
       .setPlaceholder('Nothing selected')
       .setMinValues(1)
       .setMaxValues(options.length)
