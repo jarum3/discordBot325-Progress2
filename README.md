@@ -23,13 +23,13 @@ Run [deploy-commands.js](deploy-commands.js) after adding any new command files,
 
 # Description of progress
 ## Updates from previous starting point
+- [x] **Lock permissions for essentially all current slash-commands behind administrative privileges**
 - [x] Adjusting structure of roles and functions to be more practical
 - [x] Commands for adding and dropping courses and optional roles from saved lists
 - [x] Commands for generating a dropdown that both displays that list, and assigns roles to members on interactions
 - [x] Separation into testing commands for easier deployment
 
 ## To-do
-- [x] **Lock permissions for essentially all current slash-commands behind administrative privileges**
 - [ ] Create functionality to create, populate, and archive categories and attach those to role objects
 - [ ] Validate file saving further to reduce concurrency conflicts
 - [ ] Clean up edge cases for role deletions outside of bot interactions
