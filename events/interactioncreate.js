@@ -20,25 +20,25 @@ module.exports = {
     if (interaction.isStringSelectMenu()) {
       if (interaction.customId === 'reaction-roles') {
         // TODO: Insert code for handling role joining
-        const selected = interaction.values.join(',');
-        const userReply = `The user has selected ${selected}`;
-        await interaction.reply({ content: userReply, ephemeral: true });
-
-        // Sample code for possibly handling single-selection menus
-        // await interaction.deferReply({ ephemeral: true})
-
-        // const roleID = interaction.values[0];
-        // const role = interaction.guild.roles.cache.get(roleID);
-        // const memberRoles = interaction.member.roles;
-        // const hasRole = memberRoles.cache.has(roleID);
-        // if (hasRole) {
-        //    memberRoles.remove(roleID);
-        //    interaction.followUp(`${role.name} has been removed.`);
-        // }
-        // else {
-        //     memberRoles.add(roleID);
-        //     interaction.followUp(`${role.name} has been added.`);
-        // }
+        const addedRoles = [];
+        const funcs = require('../helpers/functions');
+        const rolesList = funcs.getListFromFile('data/courses.json');
+        const rolesSelected = interaction.values;
+        // Assign roles
+        for (const course of rolesList) {
+          const courseRole = await interaction.guild.roles.fetch(course.role.id);
+          if (courseRole) {
+            await interaction.member.roles.remove(courseRole.id);
+            for (const selection of rolesSelected) {
+              if (selection === course.name) {
+                // Course = course to add, selection = selection matching that
+                await interaction.member.roles.add(courseRole.id);
+                addedRoles.push(courseRole.name);
+              }
+            }
+          }
+        }
+        await interaction.reply({ content: 'Roles added: ' + addedRoles.join(', '), ephemeral: true });
       }
     }
   },
