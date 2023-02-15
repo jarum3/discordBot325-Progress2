@@ -3,7 +3,8 @@ const { SlashCommandBuilder, ActionRowBuilder, StringSelectMenuBuilder } = requi
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('optrolesbuilder')
-    .setDescription('Creates a dropdown menu in this channel for students to select optional roles'),
+    .setDescription('Creates a dropdown menu in this channel for students to select optional roles')
+    .setDefaultMemberPermissions(0),
   async execute(interaction) {
     const funcs = require('../helpers/functions');
     const rolesList = funcs.getListFromFile('data/optroles.json');

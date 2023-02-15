@@ -3,7 +3,8 @@ const { SlashCommandBuilder, StringSelectMenuBuilder, ActionRowBuilder } = requi
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('removeoptrole')
-    .setDescription('Provides a dropdown to remove optional roles'),
+    .setDescription('Provides a dropdown to remove optional roles')
+    .setDefaultMemberPermissions(0),
   async execute(interaction) {
     const funcs = require('../helpers/functions');
     const rolesList = funcs.getListFromFile('data/optroles.json');

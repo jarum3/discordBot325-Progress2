@@ -11,7 +11,8 @@ module.exports = {
         .setDescription('The name of the role'))
     .addStringOption(option =>
       option.setName('color')
-        .setDescription('Hexcode of the desired color')),
+        .setDescription('Hexcode of the desired color'))
+    .setDefaultMemberPermissions(0),
 
   async execute(interaction) {
     const name = interaction.options.getString('name');

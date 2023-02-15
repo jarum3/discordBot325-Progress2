@@ -11,7 +11,8 @@ module.exports = {
     .addStringOption(option =>
       option.setName('description')
         .setDescription('Role description')
-        .setRequired(true)),
+        .setRequired(true))
+    .setDefaultMemberPermissions(0),
   async execute(interaction) {
     const funcs = require('../helpers/functions');
     const roleData = require('../helpers/role');

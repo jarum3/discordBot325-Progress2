@@ -26,7 +26,8 @@ module.exports = {
           const choices = [];
           rolesList.forEach(element => choices.push({ name: element.name, value: element.name }));
           return choices;
-        })())),
+        })()))
+    .setDefaultMemberPermissions(0),
   async execute(interaction) {
     const funcs = require('../helpers/functions');
     const roleData = require('../helpers/role');

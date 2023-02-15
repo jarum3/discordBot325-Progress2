@@ -10,7 +10,8 @@ module.exports = {
         .setDescription('The Name of the category'))
     .addRoleOption(option =>
       option.setName('role')
-        .setDescription('Role to restrict category to')),
+        .setDescription('Role to restrict category to'))
+    .setDefaultMemberPermissions(0),
 
   async execute(interaction) {
     const name = interaction.options.getString('name');

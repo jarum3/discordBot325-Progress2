@@ -7,7 +7,8 @@ module.exports = {
     .setDescription('creates a new channel')
     .addStringOption(option =>
       option.setName('name')
-        .setDescription('The name of the new channel')),
+        .setDescription('The name of the new channel'))
+    .setDefaultMemberPermissions(0),
   async execute(interaction) {
     const name = interaction.options.getString('name');
     const createdChannel = await interaction.guild.channels.create({
